@@ -30,6 +30,7 @@
   {
   pages: [
   'pages/index',
+  'pages/ans',
   'pages/grammar'
   ],
 
@@ -53,7 +54,7 @@
   text: '菜单'
   },
   {
-  pagePath: 'pages/index',
+  pagePath: 'pages/ans',
   iconPath: './static/ans_normal.png',
   selectedIconPath: './static/ans_selected.png',
   text: '分词器'

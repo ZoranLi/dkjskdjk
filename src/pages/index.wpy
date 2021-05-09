@@ -1,16 +1,26 @@
 <style lang="less">
-  .webview-container {
-    z-index: -10000;
-    height: 80vh;
+  .menu_container {
+    background: rgba(200, 200, 200, 0.4);
+    height: 100vh;
   }
 
+  .menu_bottom {
+    position: fixed;
+    bottom: 0;
+  }
 </style>
 <template>
-  <div class="container">
+  <div class="menu_container">
 
-    <web-view class="webview-container"
-              src="https://www.en998.com/AppUsers/LoginCheckSSL.aspx">
-    </web-view>
+    <div class="menu_bottom">
+      <div class="menu_bottom_item" @tap="handler">使用帮助</div>
+      <div>使用帮助</div>
+      <div>使用帮助</div>
+      <div>使用帮助</div>
+      <div>使用帮助</div>
+      <div>使用帮助</div>
+      <div>使用帮助1</div>
+    </div>
 
   </div>
 </template>
@@ -23,28 +33,17 @@
     data: {
       userInfo: {
         nickName: '加载中...'
-      },
-      tabBar: [
-        {
-          iconPath: '',
-          iconSelectedPath: '',
-          text: '菜单'
-        },
-        {
-          iconPath: '',
-          iconSelectedPath: '',
-          text: '分析器'
-        },
-        {
-          iconPath: '',
-          iconSelectedPath: '',
-          text: '语法'
-        }
-      ]
+      }
     },
 
     computed: {},
-    methods: {},
+    methods: {
+      handler() {
+        wx.switchTab({
+          url: ''
+        })
+      }
+    },
 
     created() {
 
