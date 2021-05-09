@@ -29,7 +29,8 @@
 <config>
   {
   pages: [
-  'pages/index'
+  'pages/index',
+  'pages/grammar'
   ],
 
   window: {
@@ -37,7 +38,7 @@
   navigationBarBackgroundColor: '#fff',
   navigationBarTitleText: 'WeChat',
   navigationBarTextStyle: 'black'
-  },
+  }, 
 
   tabBar: {
   color: '#6e6d6b',
@@ -58,7 +59,7 @@
   text: '分词器'
   },
   {
-  pagePath: 'pages/index',
+  pagePath: 'pages/grammar',
   iconPath: './static/grammar_normal.png',
   selectedIconPath: './static/grammar_selected.png',
   text: '语法'

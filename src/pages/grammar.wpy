@@ -1,0 +1,48 @@
+<style lang="less">
+  .webview-container {
+    z-index: -10000;
+    height: 80vh;
+  }
+
+</style>
+<template>
+  <div class="container">
+
+    <web-view class="webview-container"
+              src="https://www.en998.com/gapp">
+    </web-view>
+
+  </div>
+</template>
+
+<script>
+  import wepy from '@wepy/core'
+
+  wepy.page({
+
+    data: {
+      userInfo: {
+        nickName: '加载中...'
+      }
+    },
+
+    computed: {},
+    methods: {},
+
+    created() {
+
+    }
+  })
+</script>
+<config>
+  {
+  navigationBarTitleText: '语法',
+
+  "navigationStyle":"custom",
+  usingComponents:
+  {
+
+
+  }
+  }
+</config>
