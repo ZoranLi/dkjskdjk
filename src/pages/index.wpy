@@ -12,15 +12,21 @@
 <template>
   <div class="menu_container">
 
-    <div class="menu_bottom">
-      <div class="menu_bottom_item" @tap="handler(0)">使用帮助</div>
-      <div class="menu_bottom_item" @tap="handler(1)">产品介绍</div>
-      <div class="menu_bottom_item" @tap="handler(2)">划分说明</div>
-      <div class="menu_bottom_item" @tap="handler(3)">意见反馈</div>
-      <div class="menu_bottom_item" @tap="handler(4)">联系我们</div>
-      <div class="menu_bottom_item" @tap="handler(5)">付费</div>
-      <div class="menu_bottom_item" @tap="handler(6)">个人中心</div>
-    </div>
+<!--    <div class="menu_bottom">-->
+<!--      <div class="menu_bottom_item" @tap="handler(0)">使用帮助</div>-->
+<!--      <div class="menu_bottom_item" @tap="handler(1)">产品介绍</div>-->
+<!--      <div class="menu_bottom_item" @tap="handler(2)">划分说明</div>-->
+<!--      <div class="menu_bottom_item" @tap="handler(3)">意见反馈</div>-->
+<!--      <div class="menu_bottom_item" @tap="handler(4)">联系我们</div>-->
+<!--      <div class="menu_bottom_item" @tap="handler(5)">付费</div>-->
+<!--      <div class="menu_bottom_item" @tap="handler(6)">个人中心</div>-->
+<!--    </div>-->
+    <web-view
+      src="https://www.en998.com/appusers/xcxmenu.htm"
+    >
+
+
+    </web-view>
 
   </div>
 </template>
