@@ -4,10 +4,8 @@
     height: 100vh;
   }
 
-  .menu_bottom {
-    position: fixed;
-    bottom: 0;
-  }
+
+
 </style>
 <template>
   <div class="menu_container">
