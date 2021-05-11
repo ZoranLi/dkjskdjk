@@ -9,6 +9,8 @@
   <div class="container">
 
     <web-view class="webview-container"
+              bindmessage="eventhandler"
+              bindload="bindLoadMethod"
               src="{{url}}">
     </web-view>
 
@@ -25,7 +27,15 @@
     },
 
     computed: {},
-    methods: {},
+    methods: {
+      eventhandler(e) {
+        //TODO 处理网页交互事件
+
+      },
+      bindLoadMethod(e) {
+        //  网页初始化完成
+      }
+    },
 
     created(params) {
 
@@ -59,6 +69,7 @@
           this.url = 'https://www.en998.com/AppUsers/LoginCheckSSL.aspx'
           break
       }
+      this.$app.$options.globalData.type = -1
     },
     onLoad(options) {
 

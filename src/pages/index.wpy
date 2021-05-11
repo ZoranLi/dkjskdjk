@@ -21,6 +21,7 @@
     <!--    </div>-->
     <web-view
       src="{{url}}"
+      bindmessage="eventhandler"
     >
 
     </web-view>
@@ -43,6 +44,9 @@
         wx.switchTab({
           url: `ans`
         })
+      },
+      eventhandler(e) {
+        //TODO 处理网页交互事件
       },
       onTabItemTap(){
         this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
