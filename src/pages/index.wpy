@@ -33,9 +33,6 @@
 
   wepy.page({
     data: {
-      userInfo: {
-        nickName: '加载中...'
-      },
       url: ''
     },
 
@@ -46,11 +43,20 @@
         wx.switchTab({
           url: `ans`
         })
+      },
+      onTabItemTap(){
+        this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
+        this.onLoad()
+        this.onShow()
       }
     },
 
     onShow() {
       this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
+      // this.$app.$options.globalData.type = 4
+      // wx.switchTab({
+      //   url: `ans`
+      // })
     },
     created() {
 
