@@ -1,0 +1,50 @@
+<style lang="less">
+
+
+</style>
+<template>
+  <div class="container">
+
+    <web-view class="webview-container"
+              src="{{url}}">
+    </web-view>
+
+  </div>
+</template>
+
+<script>
+  import wepy from '@wepy/core'
+
+  wepy.page({
+
+    data: {
+      url:''
+    },
+
+    computed: {},
+    methods: {
+
+    },
+
+    created(params) {
+
+    },
+    onShow() {
+    },
+    onLoad(options) {
+      this.url = options.url
+    },
+  })
+</script>
+<config>
+  {
+  navigationBarTitleText: '中间页面',
+
+  "navigationStyle":"custom",
+  usingComponents:
+  {
+
+
+  }
+  }
+</config>

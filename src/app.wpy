@@ -38,7 +38,8 @@
   pages: [
   'pages/index',
   'pages/ans',
-  'pages/grammar'
+  'pages/grammar',
+  'pages/placeholder'
   ],
 
   window: {
