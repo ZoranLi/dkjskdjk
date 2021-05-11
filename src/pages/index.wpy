@@ -46,6 +46,7 @@
         })
       },
       eventhandler(e) {
+        console.log(e)
         //TODO 处理网页交互事件
       },
       onTabItemTap(){
@@ -57,10 +58,24 @@
 
     onShow() {
       this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
+      // this.url = `https://cm.xiaohongchun.com/`
       // this.$app.$options.globalData.type = 4
       // wx.switchTab({
       //   url: `ans`
       // })
+    },
+    onLoad (option) {
+      if(option && option.url){
+        let url = option.url
+        if(!url.startsWith('http')){
+          url = `https://www.en998.com${option.url}`
+        }
+
+        this.$app.$options.globalData.url = url
+        wx.switchTab({
+          url: `ans`
+        })
+      }
     },
     created() {
 
