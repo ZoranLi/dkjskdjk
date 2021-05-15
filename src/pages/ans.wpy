@@ -43,7 +43,7 @@
     // https://www.en998.com/sentence/App.htm
     onTabItemTap() {
       // this.url = 'https://www.en998.com/AppUsers/LoginCheckSSL.aspx'
-      this.url = 'https://www.en998.com/sentence/Appwx.htm'
+      this.url = 'https://www.en998.com/sentence/appwx.htm'
     },
     onShow() {
       // let type = this.$app.$options.globalData.type

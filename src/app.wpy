@@ -27,6 +27,7 @@
       type: -1,
       ansUrl: '',
       grammarUrl: '',
+      placeholderUrl: ''
     },
 
     onLaunch() {

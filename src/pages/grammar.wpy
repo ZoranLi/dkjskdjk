@@ -26,9 +26,9 @@
 
     computed: {},
     methods: {},
-    onTabItemTap() {
-      this.url = ''
-    },
+    // onTabItemTap() {
+    //   this.url = ''
+    // },
     onShow() {
       // let url = this.$app.$options.globalData.grammarUrl;
       // this.url = url ? url : ''

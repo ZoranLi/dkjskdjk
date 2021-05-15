@@ -73,17 +73,19 @@
           url = url.replace(/^http/,"https")
         }
 
-        if(url.endsWith('qishi/qishiju.html')){
-          this.$app.$options.globalData.grammarUrl = url
-          wx.switchTab({
-            url: `grammar`
-          })
-        }else {
-          this.$app.$options.globalData.ansUrl = url
-          wx.switchTab({
-            url: `ans`
-          })
-        }
+        // if(url.endsWith('qishi/qishiju.html')){
+        //   this.$app.$options.globalData.placeholderUrl = url
+        //   // wx.switchTab({
+        //   //   url: `placeholder`
+        //   // })
+        // }else {
+        //
+        // }
+
+        this.$app.$options.globalData.ansUrl = url
+        wx.switchTab({
+          url: `ans`
+        })
       }
     },
     created() {
