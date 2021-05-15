@@ -9,7 +9,7 @@
   <div class="container">
 
     <web-view class="webview-container"
-              src="https://www.en998.com/gapp">
+              src="{{url}}">
     </web-view>
 
   </div>
@@ -21,14 +21,19 @@
   wepy.page({
 
     data: {
-      userInfo: {
-        nickName: '加载中...'
-      }
+      url: 'https://www.en998.com/gapp'
     },
 
     computed: {},
     methods: {},
-
+    onTabItemTap() {
+      this.url = ''
+    },
+    onShow() {
+      // let url = this.$app.$options.globalData.grammarUrl;
+      // this.url = url ? url : ''
+      // this.$app.$options.globalData.grammarUrl = ''
+    },
     created() {
 
     }

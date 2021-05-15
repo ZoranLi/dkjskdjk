@@ -25,7 +25,8 @@
     globalData: {
       userInfo: null,
       type: -1,
-      url:''
+      ansUrl: '',
+      grammarUrl: '',
     },
 
     onLaunch() {
