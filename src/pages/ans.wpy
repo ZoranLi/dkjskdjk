@@ -40,10 +40,14 @@
     created(params) {
 
     },
+    // https://www.en998.com/sentence/App.htm
+    onTabItemTap() {
+      this.url = 'https://www.en998.com/sentence/App.htm'
+    },
     onShow() {
       // let type = this.$app.$options.globalData.type
       let url = this.$app.$options.globalData.url
-      this.url = url?url:''
+      this.url = url ? url:''
       // switch (type) {
       //   case 0:
       //     this.url = 'https://www.en998.com/sentence/helpapp.html'
