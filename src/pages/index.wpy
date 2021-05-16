@@ -45,6 +45,34 @@
           url: `ans`
         })
       },
+      getCode() {
+        wx.login({
+          success (res) {
+            if (res.code) {
+              // 发起网络请求
+              // wx.request({
+              //   url: '自己的服务器请求接口',
+              //   data: {
+              //     code: res.code
+              //   }
+              // })
+              wx.showModal({
+                title: 'code换openid',
+                content: `${res.code}`,
+                success(res) {
+                  if (res.confirm) {
+                    console.log('用户点击确定')
+                  } else if (res.cancel) {
+                    console.log('用户点击取消')
+                  }
+                }
+              })
+            } else {
+              console.log('登录失败！' + res.errMsg)
+            }
+          }
+        })
+      },
       eventhandler(e) {
         console.log(e)
         //TODO 处理网页交互事件
@@ -64,6 +92,7 @@
       //   url: `ans`
       // })
     },
+
     onLoad (option) {
       if(option && option.url){
         let url = option.url
@@ -72,21 +101,12 @@
         }else if(!url.startsWith('https')){
           url = url.replace(/^http/,"https")
         }
-
-        // if(url.endsWith('qishi/qishiju.html')){
-        //   this.$app.$options.globalData.placeholderUrl = url
-        //   // wx.switchTab({
-        //   //   url: `placeholder`
-        //   // })
-        // }else {
-        //
-        // }
-
         this.$app.$options.globalData.ansUrl = url
         wx.switchTab({
           url: `ans`
         })
       }
+      this.getCode();
     },
     created() {
 
