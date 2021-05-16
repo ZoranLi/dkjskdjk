@@ -67,6 +67,7 @@
                   }
                 }
               })
+              console.log(res.code)
             } else {
               console.log('登录失败！' + res.errMsg)
             }
