@@ -1,4 +1,4 @@
-# dkjskdjk
+# 初始化步骤
 - 1、npm install @wepy/cli@next -g
 - 2、cd 项目目录
 - 3、npm install
