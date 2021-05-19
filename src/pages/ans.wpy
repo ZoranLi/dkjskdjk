@@ -29,7 +29,7 @@
     computed: {},
     methods: {
       eventhandler(e) {
-        //TODO 处理网页交互事件
+        // 处理网页交互事件
 
       },
       bindLoadMethod(e) {
@@ -40,42 +40,12 @@
     created(params) {
 
     },
-    // https://www.en998.com/sentence/App.htm
     onTabItemTap() {
-      this.url = 'https://www.en998.com/AppUsers/LoginCheck.aspx'
-      // this.url = 'https://www.en998.com/sentence/appwx.htm'
+      this.url = 'https://www.en998.com/appusers/logincheck.aspx?cside=wx'
     },
     onShow() {
-      // let type = this.$app.$options.globalData.type
       let url = this.$app.$options.globalData.ansUrl
       this.url = url ? url:''
-      // switch (type) {
-      //   case 0:
-      //     this.url = 'https://www.en998.com/sentence/helpapp.html'
-      //     break
-      //   case 1:
-      //     this.url = 'https://www.en998.com/entence/aboutsite_app.html'
-      //     break
-      //   case 2:
-      //     this.url = 'https://www.en998.com/sentence/senmark_app.html'
-      //     break
-      //   case 3:
-      //     this.url = 'https://www.en998.com/appusers/messagetome.aspx'
-      //     break
-      //   case 4:
-      //     this.url = 'https://www.en998.com/appusers/contactus.htm'
-      //     break
-      //   case 5:
-      //     this.url = 'https://www.en998.com/appusers/payusernote.aspx'
-      //     break
-      //   case 6:
-      //     this.url = 'https://www.en998.com/appusers/personalsetting.aspx'
-      //     break
-      //
-      //   default:
-      //     this.url = 'https://www.en998.com/AppUsers/LoginCheckSSL.aspx'
-      //     break
-      // }
       this.$app.$options.globalData.ansUrl = ''
     },
     onLoad(options) {

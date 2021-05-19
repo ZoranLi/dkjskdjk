@@ -1,14 +1,11 @@
 <style lang="less">
-  .webview-container {
-    z-index: -10000;
-    height: 80vh;
-  }
+
 
 </style>
 <template>
   <div class="container">
 
-    <web-view class="webview-container"
+    <web-view
               src="{{url}}">
     </web-view>
 
@@ -26,13 +23,7 @@
 
     computed: {},
     methods: {},
-    // onTabItemTap() {
-    //   this.url = ''
-    // },
     onShow() {
-      // let url = this.$app.$options.globalData.grammarUrl;
-      // this.url = url ? url : ''
-      // this.$app.$options.globalData.grammarUrl = ''
     },
     created() {
 
