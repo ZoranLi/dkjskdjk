@@ -47,11 +47,5 @@
   navigationBarTitleText: '语法',
   pageOrientation:'portrait',
 
-  "navigationStyle":"custom",
-  usingComponents:
-  {
-
-
-  }
   }
 </config>

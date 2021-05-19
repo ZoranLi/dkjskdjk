@@ -70,11 +70,5 @@
   {
   navigationBarTitleText: '分词器',
 
-  "navigationStyle":"custom",
-  usingComponents:
-  {
-
-
-  }
   }
 </config>

@@ -60,11 +60,5 @@
   {
   navigationBarTitleText: '',
   pageOrientation:'portrait',
-  "navigationStyle":"custom",
-  usingComponents:
-  {
-
-
-  }
-  }
+ }
 </config>
