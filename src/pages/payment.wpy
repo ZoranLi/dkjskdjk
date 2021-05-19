@@ -1,5 +1,11 @@
 <style lang="less">
-
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
 
 </style>
 <template>
@@ -13,14 +19,14 @@
 <script>
   import wepy from '@wepy/core'
   import promisify from '@wepy/use-promisify'
+
   wepy.use(promisify)
 
   wepy.page({
-    data: {
-    },
+    data: {},
     methods: {
       getCode(option) {
-        let that = this;
+        let that = this
         wx.login({
           success(res) {
             if (res.code) {
@@ -32,7 +38,7 @@
         })
       },
       pay(option) {
-        let { userid, servicetype,code } = option
+        let { userid, servicetype, code } = option
         let requestOptions = {
           url: 'https://www.en998.com/appusers/requesttopaywx.aspx',
           method: 'POST',
@@ -45,9 +51,33 @@
         }
         wepy.wx.request(requestOptions)
           .then(response => {
-            wx.requestPayment(response.data)
+            wx.requestPayment(
+              {
+                'timeStamp': `${response.timeStamp}`,
+                'nonceStr': `${response.nonceStr}`,
+                'package': `${response.package}`,
+                'signType': `${response.signType}`,
+                'paySign': `${response.paySign}`,
+                success (res) {
+                  wx.showToast({
+                    title: '支付成功',
+                    icon: 'success',
+                    duration: 2000
+                  })
+                },
+                fail (res) {
+                  debugger
+                  wx.showToast({
+                    title: '支付失败',
+                    icon: 'success',
+                    duration: 2000
+                  })
+                }
+              }
+            )
           }).catch(async e => {
-          })
+            debugger
+        })
       }
     },
 
@@ -60,6 +90,6 @@
 </script>
 <config>
   {
-    navigationBarTitleText: '支付',
+  navigationBarTitleText: '支付',
   }
 </config>
