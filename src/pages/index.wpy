@@ -1,28 +1,13 @@
 <style lang="less">
-  .menu_container {
-    background: rgba(200, 200, 200, 0.4);
-    height: 100vh;
-  }
-
 
 
 </style>
 <template>
-  <div class="menu_container">
+  <div>
 
-    <!--    <div class="menu_bottom">-->
-    <!--      <div class="menu_bottom_item" @tap="handler(0)">使用帮助</div>-->
-    <!--      <div class="menu_bottom_item" @tap="handler(1)">产品介绍</div>-->
-    <!--      <div class="menu_bottom_item" @tap="handler(2)">划分说明</div>-->
-    <!--      <div class="menu_bottom_item" @tap="handler(3)">意见反馈</div>-->
-    <!--      <div class="menu_bottom_item" @tap="handler(4)">联系我们</div>-->
-    <!--      <div class="menu_bottom_item" @tap="handler(5)">付费</div>-->
-    <!--      <div class="menu_bottom_item" @tap="handler(6)">个人中心</div>-->
-    <!--    </div>-->
     <web-view
       src="{{url}}"
-      bindmessage="eventhandler"
-    >
+      bindmessage="eventhandler">
 
     </web-view>
 
@@ -49,13 +34,6 @@
         wx.login({
           success (res) {
             if (res.code) {
-              // 发起网络请求
-              // wx.request({
-              //   url: '自己的服务器请求接口',
-              //   data: {
-              //     code: res.code
-              //   }
-              // })
               wx.showModal({
                 title: 'code换openid',
                 content: `${res.code}`,
@@ -76,7 +54,7 @@
       },
       eventhandler(e) {
         console.log(e)
-        //TODO 处理网页交互事件
+        // 处理网页交互事件
       },
       onTabItemTap(){
         this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
@@ -87,11 +65,6 @@
 
     onShow() {
       this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
-      // this.url = `https://cm.xiaohongchun.com/`
-      // this.$app.$options.globalData.type = 4
-      // wx.switchTab({
-      //   url: `ans`
-      // })
     },
 
     onLoad (option) {
@@ -107,7 +80,10 @@
           url: `ans`
         })
       }
-      this.getCode();
+
+      // this.$navigate({
+      //   url: '/pages/payment'
+      // })
     },
     created() {
 

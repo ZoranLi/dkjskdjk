@@ -42,7 +42,8 @@
   'pages/index',
   'pages/ans',
   'pages/grammar',
-  'pages/placeholder'
+  'pages/placeholder',
+  'pages/payment'
   ],
 
   window: {

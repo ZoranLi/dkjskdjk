@@ -1,0 +1,65 @@
+<style lang="less">
+
+
+</style>
+<template>
+  <div class="container">
+
+    正在支付。。。。
+
+  </div>
+</template>
+
+<script>
+  import wepy from '@wepy/core'
+  import promisify from '@wepy/use-promisify'
+  wepy.use(promisify)
+
+  wepy.page({
+    data: {
+    },
+    methods: {
+      getCode(option) {
+        let that = this;
+        wx.login({
+          success(res) {
+            if (res.code) {
+              console.log(res.code)
+              option.code = res.code
+              that.pay(option)
+            }
+          }
+        })
+      },
+      pay(option) {
+        let { userid, servicetype,code } = option
+        let requestOptions = {
+          url: 'https://www.en998.com/appusers/requesttopaywx.aspx',
+          method: 'POST',
+          data: {
+            'userid': userid,
+            'servicetype': servicetype,
+            'phonetype': '2',
+            'code': code
+          }
+        }
+        wepy.wx.request(requestOptions)
+          .then(response => {
+            wx.requestPayment(response.data)
+          }).catch(async e => {
+          })
+      }
+    },
+
+    onLoad(option) {
+      option.userid = '141865'
+      option.servicetype = 'A'
+      this.getCode(option)
+    }
+  })
+</script>
+<config>
+  {
+    navigationBarTitleText: '支付',
+  }
+</config>
