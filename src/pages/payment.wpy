@@ -89,5 +89,6 @@
 <config>
   {
   navigationBarTitleText: '支付',
+  pageOrientation:'portrait',
   }
 </config>

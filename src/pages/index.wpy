@@ -1,15 +1,25 @@
 <style lang="less">
-
+  .error {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+  }
 
 </style>
 <template>
   <div>
 
-    <web-view
-      src="{{url}}"
-      bindmessage="eventhandler">
+    <web-view wx:if="{{network}}"
+              src="{{url}}"
+              bindmessage="eventhandler">
 
     </web-view>
+
+    <div class="error" wx:else>
+      网络无法连接，请连接网络。
+    </div>
 
   </div>
 </template>
@@ -19,10 +29,9 @@
 
   wepy.page({
     data: {
-      url: ''
+      url: '',
+      network: true
     },
-
-    computed: {},
     methods: {
       handler(index) {
         this.$app.$options.globalData.type = index
@@ -32,7 +41,7 @@
       },
       getCode() {
         wx.login({
-          success (res) {
+          success(res) {
             if (res.code) {
               wx.showModal({
                 title: 'code换openid',
@@ -56,7 +65,7 @@
         console.log(e)
         // 处理网页交互事件
       },
-      onTabItemTap(){
+      onTabItemTap() {
         this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
         this.onLoad()
         this.onShow()
@@ -66,14 +75,13 @@
     onShow() {
       this.url = `https://www.en998.com/appusers/xcxmenu.htm?sessionKey=${new Date().getTime()}`
     },
-
-    onLoad (option) {
-      if(option && option.url){
+    onLoad(option) {
+      if (option && option.url) {
         let url = option.url
-        if(!url.startsWith('http')){
+        if (!url.startsWith('http')) {
           url = `https://www.en998.com${option.url}`
-        }else if(!url.startsWith('https')){
-          url = url.replace(/^http/,"https")
+        } else if (!url.startsWith('https')) {
+          url = url.replace(/^http/, 'https')
         }
         this.$app.$options.globalData.ansUrl = url
         wx.switchTab({
@@ -86,19 +94,24 @@
       // })
     },
     created() {
+      let that = this
+      wx.getNetworkType({
+        success(res) {
+          const networkType = res.networkType
+          that.network = networkType !== 'none'
+        }
+      })
 
+      wx.onNetworkStatusChange(function(res) {
+        debugger
+        that.network = res.networkType !== 'none'
+      })
     }
   })
 </script>
 <config>
   {
   navigationBarTitleText: '页面',
-
-  "navigationStyle":"custom",
-  usingComponents:
-  {
-
-
-  }
+  pageOrientation:'portrait',
   }
 </config>
