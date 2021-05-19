@@ -11,9 +11,12 @@
     <web-view class="webview-container"
               bindmessage="eventhandler"
               bindload="bindLoadMethod"
+              wx:if="{{network}}"
               src="{{url}}">
     </web-view>
-
+    <div class="error" wx:else>
+      网络无法连接，请连接网络。
+    </div>
   </div>
 </template>
 
@@ -23,7 +26,8 @@
   wepy.page({
 
     data: {
-      url: 'https://www.en998.com/AppUsers/LoginCheckSSL.aspx'
+      url: 'https://www.en998.com/AppUsers/LoginCheckSSL.aspx',
+      network: true
     },
 
     computed: {},
@@ -37,8 +41,17 @@
       }
     },
 
-    created(params) {
-
+    created() {
+      let that = this
+      wx.getNetworkType({
+        success(res) {
+          const networkType = res.networkType
+          that.network = networkType !== 'none'
+        }
+      })
+      wx.onNetworkStatusChange(function(res) {
+        that.network = res.networkType !== 'none'
+      })
     },
     onTabItemTap() {
       this.url = 'https://www.en998.com/appusers/logincheck.aspx?cside=wx'

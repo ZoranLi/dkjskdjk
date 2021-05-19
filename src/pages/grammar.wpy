@@ -5,10 +5,12 @@
 <template>
   <div class="container">
 
-    <web-view
+    <web-view wx:if="{{network}}"
               src="{{url}}">
     </web-view>
-
+    <div class="error" wx:else>
+      网络无法连接，请连接网络。
+    </div>
   </div>
 </template>
 
@@ -18,7 +20,8 @@
   wepy.page({
 
     data: {
-      url: 'https://www.en998.com/gapp'
+      url: 'https://www.en998.com/gapp',
+      network: true
     },
 
     computed: {},
@@ -26,7 +29,16 @@
     onShow() {
     },
     created() {
-
+      let that = this
+      wx.getNetworkType({
+        success(res) {
+          const networkType = res.networkType
+          that.network = networkType !== 'none'
+        }
+      })
+      wx.onNetworkStatusChange(function(res) {
+        that.network = res.networkType !== 'none'
+      })
     }
   })
 </script>

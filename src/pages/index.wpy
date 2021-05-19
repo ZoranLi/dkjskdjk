@@ -1,11 +1,4 @@
 <style lang="less">
-  .error {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-  }
 
 </style>
 <template>
@@ -103,7 +96,6 @@
       })
 
       wx.onNetworkStatusChange(function(res) {
-        debugger
         that.network = res.networkType !== 'none'
       })
     }
