@@ -64,6 +64,7 @@
                     icon: 'success',
                     duration: 2000
                   })
+                  this.$app.$options.globalData.ansUrl = '/appusers/paysucceed.aspx?paytype=wx'
                 },
                 fail (res) {
                   wx.showToast({
