@@ -53,11 +53,11 @@
           .then(response => {
             wx.requestPayment(
               {
-                'timeStamp': `${response.timeStamp}`,
-                'nonceStr': `${response.nonceStr}`,
-                'package': `${response.package}`,
-                'signType': `${response.signType}`,
-                'paySign': `${response.paySign}`,
+                'timeStamp': `${response.data.timeStamp}`,
+                'nonceStr': `${response.data.nonceStr}`,
+                'package': `${response.data.package}`,
+                'signType': `${response.data.signType}`,
+                'paySign': `${response.data.paySign}`,
                 success (res) {
                   wx.showToast({
                     title: '支付成功',
@@ -80,8 +80,6 @@
     },
 
     onLoad(option) {
-      option.userid = '141865'
-      option.servicetype = 'A'
       this.getCode(option)
     }
   })
