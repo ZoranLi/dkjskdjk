@@ -14,6 +14,7 @@
               wx:if="{{network}}"
               src="{{url}}">
     </web-view>
+
     <div class="error" wx:else>
       网络无法连接，请连接网络。
     </div>
@@ -26,7 +27,7 @@
   wepy.page({
 
     data: {
-      url: 'https://www.en998.com/AppUsers/LoginCheckSSL.aspx',
+      url: 'https://www.en998.com/appusers/logincheck.aspx?cside=wx',
       network: true
     },
 
@@ -54,12 +55,14 @@
       })
     },
     onTabItemTap() {
-      this.url = 'https://www.en998.com/appusers/logincheck.aspx?cside=wx'
+      if(this.url !== 'https://www.en998.com/sentence/appwx.htm'){
+        this.url = 'https://www.en998.com/sentence/appwx.htm'
+      }
     },
     onShow() {
-      let url = this.$app.$options.globalData.ansUrl
-      this.url = url ? url:''
-      this.$app.$options.globalData.ansUrl = ''
+      // let url = this.$app.$options.globalData.ansUrl
+      // this.url = url ? url:''
+      // this.$app.$options.globalData.ansUrl = ''
     },
     onLoad(options) {
 

@@ -12,6 +12,7 @@
       网络无法连接，请连接网络。
     </div>
 
+
   </div>
 </template>
 
@@ -53,6 +54,14 @@
         }
         this.url = url
       }
+    },
+    onUnload() {
+      // 返回按钮点击,进行一些打点操作
+      debugger
+      this.$back()
+      // WxLog.send({
+      //   name:'N**',
+      // });
     },
   })
 </script>

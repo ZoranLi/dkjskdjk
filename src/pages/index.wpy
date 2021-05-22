@@ -77,8 +77,13 @@
           url = url.replace(/^http/, 'https')
         }
         this.$app.$options.globalData.ansUrl = url
-        wx.switchTab({
-          url: `ans`
+
+        // wx.switchTab({
+        //   url: `ans`
+        // })
+
+        wx.navigateTo({
+          url: `placeholder?url=${url}`
         })
       }
 

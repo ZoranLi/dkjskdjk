@@ -48,8 +48,8 @@
 <config>
   {
   pages: [
-  'pages/index',
   'pages/ans',
+  'pages/index',
   'pages/grammar',
   'pages/placeholder',
   'pages/payment'
