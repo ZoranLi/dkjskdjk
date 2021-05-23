@@ -11,7 +11,7 @@
 <template>
   <div class="container">
 
-    正在支付。。。。
+    {{payMessage}}
 
   </div>
 </template>
@@ -23,7 +23,9 @@
   wepy.use(promisify)
 
   wepy.page({
-    data: {},
+    data: {
+      payMessage:'正在支付。。。。'
+    },
     methods: {
       getCode(option) {
         let that = this
@@ -38,6 +40,7 @@
         })
       },
       pay(option) {
+        let that = this
         let { userid, servicetype, code } = option
         let requestOptions = {
           url: 'https://www.en998.com/appusers/requesttopaywx.aspx',
@@ -64,8 +67,11 @@
                     icon: 'success',
                     duration: 2000
                   })
-                  this.$app.$options.globalData.ansUrl = '/appusers/paysucceed.aspx?paytype=wx'
-                  this.$back()
+
+                  that.payMessage = '支付成功'
+                  setTimeout(()=>{
+                    that.$back(2)
+                  },1000)
                 },
                 fail(res) {
                   wx.showToast({
@@ -73,7 +79,11 @@
                     icon: 'success',
                     duration: 2000
                   })
-                  this.$back()
+                  that.payMessage = '支付失败'
+                  setTimeout(()=>{
+                    that.$back()
+                  },1000)
+
                 }
               }
             )

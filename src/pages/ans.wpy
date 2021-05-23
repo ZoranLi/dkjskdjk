@@ -38,7 +38,8 @@
 
       },
       bindLoadMethod(e) {
-        //  网页初始化完成
+        // 网页初始化完成
+        this.url = e.$wx.detail.src
       }
     },
 
@@ -60,7 +61,7 @@
       }
     },
     onShow() {
-      // let url = this.$app.$options.globalData.ansUrl
+      // let url = this.$app.$onavigationStyleptions.globalData.ansUrl
       // this.url = url ? url:''
       // this.$app.$options.globalData.ansUrl = ''
     },

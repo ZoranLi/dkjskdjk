@@ -4,31 +4,44 @@
 </style>
 <template>
   <div class="container">
-
-    <web-view class="webview-container"  wx:if="{{network}}"
+    <navigation-bar title="{{title}}" bindback="handleBack" bindhome="handleHome">
+      <view class="page-content">Page content here.</view>
+    </navigation-bar>
+    <web-view class="webview-container"
+              wx:if="{{network}}"
+              bindload="bindLoadMethod"
               src="{{url}}">
     </web-view>
     <div class="error" wx:else>
       网络无法连接，请连接网络。
     </div>
 
-
   </div>
 </template>
 
 <script>
   import wepy from '@wepy/core'
-
   wepy.page({
 
     data: {
+      title:'',
       url: '',
-      network: true
+      network: true,
+      // 此页面 页面内容距最顶部的距离
     },
 
     computed: {},
     methods: {
+      handleBack(){
 
+      },
+      handleHome(){
+
+      },
+      bindLoadMethod(e) {
+        // 网页初始化完成
+        this.url = e.$wx.detail.src
+      }
     },
     created() {
       let that = this
@@ -55,19 +68,15 @@
         this.url = url
       }
     },
-    onUnload() {
-      // 返回按钮点击,进行一些打点操作
-      debugger
-      this.$back()
-      // WxLog.send({
-      //   name:'N**',
-      // });
-    },
   })
 </script>
 <config>
   {
   navigationBarTitleText: '',
   pageOrientation:'portrait',
- }
+  "navigationStyle": "custom",
+  usingComponents: {
+  "navigation-bar": "module:mp-navigation-bar"
+  },
+  }
 </config>
